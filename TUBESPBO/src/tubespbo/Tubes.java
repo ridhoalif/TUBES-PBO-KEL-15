@@ -48,7 +48,7 @@ public class Tubes {
     public Mahasiswa getMemberById(int id){
         Mahasiswa a=member[0];
         for(int i=0;i<member.length;i++){
-            if(member[i].getId()==id){
+            if(member[i].getNim()==id){
                 a=member[i];
             }
         }
