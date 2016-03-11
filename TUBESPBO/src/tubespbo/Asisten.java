@@ -47,6 +47,5 @@ public class Asisten {
 	}
 	public int getIndex(){
 		return index;
-	
         }
 }
