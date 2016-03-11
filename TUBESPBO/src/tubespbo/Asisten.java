@@ -12,23 +12,34 @@ package tubespbo;
 public class Asisten {
     private String nama;
 	private long id;
-	public TugasBesar[] tugasBesar;
-	private int index;
+	public Tubes[] tubes;
+	private int numtubes=0;
 
-	public Asisten(String nama,long id,TugasBesar tugasBesar,int index){
+	public Asisten(String nama,long id,int index){
 		this.nama = nama;
 		this.id = id;
-		this.tugasBesar = tugasBesar;
-		this.index = index;
+		Tubes[] tubes = new Tubes[numtubes];
 	}
-	public void createTugasBesar(TugasBesar tb){
-		tugasBesar = tb;
+	public void createTubes(Tubes tb){
+		
+                if (numtubes<tubes.length){
+                    tubes[numtubes]=tb;
+                    numtubes++;
+                }
+                else{
+                    System.out.println("data sudah penuh");
+                }
 	}
-	public TugasBesar getTugasBesar(TugasBesar tugasBesar,int index){
-		this.tugasBesar[index] = tugasBesar[index]; //aing sok tau yang ini kwkwkkwk
+	public Tubes getTubes(int a){
+		return tubes[a];
 	}
-	public void deleteTugasBesar(TugasBesar tugasBesar,int index){
-		tugasBesar.remove(index); // benerin lipp kwkwk
+	public void deleteTubes(int a){
+            tubes[a]=null;
+            int c=a+1;
+            for(int i=c;i<=tubes.length;i++){
+                tubes[i]=tubes[i-1];
+            }
+		
 	}
 	public void setNama(String nama){
 		this.nama = nama;
@@ -36,16 +47,12 @@ public class Asisten {
 	public void setId(long id){
 		this.id = id;
 	}
-	public void setIndex(int index){
-		this,index = index;
-	}
+	
 	public String getNama(){
 		return nama;
 	}
 	public long getId(){
 		return id;
 	}
-	public int getIndex(){
-		return index;
-        }
+
 }
