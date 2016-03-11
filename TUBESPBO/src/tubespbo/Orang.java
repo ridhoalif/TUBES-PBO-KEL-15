@@ -45,5 +45,6 @@ public class Orang {
 	}
 	public String getStatus(){
 		return status;
-	}
+	
+        }
 }
