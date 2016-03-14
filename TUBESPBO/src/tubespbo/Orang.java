@@ -11,39 +11,41 @@ package tubespbo;
  */
 public class Orang {
     private String jenisKelamin;
-	private String tanggalLahir;
-	private String tempatLahir;
-	private String status;
+	private int umur;
+	private String nama;
+	
 
-	public Orang (String jenisKelamin,String tanggalLahir,String tempatLahir,String status){
+	public Orang (String jenisKelamin,int umur,String nama){
 		this.jenisKelamin = jenisKelamin;
-		this.tanggalLahir = tanggalLahir;
-		this.tempatLahir = tempatLahir;
-		this.status = status;
+		this.umur = umur;
+		this.nama = nama;
+		
 	}
 
 	public void setJenisKelamin(String jenisKelamin){
+            if(jenisKelamin=="laki-laki"||jenisKelamin=="perempuan"){
 		this.jenisKelamin = jenisKelamin;
+            }
+            else{
+                System.out.println("Data jenis kelamin salah");
+            }
 	}
-	public void setTanggalLahir(String tanggalLahir){
-		this.tanggalLahir = tanggalLahir;
+        
+	public void setNama(String n){
+		nama= n;
 	}
-	public void setTempatLahir(String tempatLahir){
-		this.tempatLahir = tempatLahir;
+	public void setUmur(int u){
+		umur = u;
 	}
-	public void setStatus(String status){
-		this.status = status;
+	
+	public String getNama(){
+		return nama;
+	}
+	public int getUmur(){
+		return umur;
 	}
 	public String getJenisKelamin(){
 		return jenisKelamin;
 	}
-	public String getTanggalLahir(){
-		return tanggalLahir;
-	}
-	public String getTempatLahir(){
-		return tempatLahir;
-	}
-	public String getStatus(){
-		return status;
-        }
+	
 }

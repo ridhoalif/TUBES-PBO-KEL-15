@@ -10,22 +10,33 @@ package tubespbo;
  * @author chigin
  */
 public class Tubes {
-    private Dokumentasi[] dokumentasi;
+    private Dokumentasi dokumentasi[];
     private int idtubes;
     private String judul;
-    private Mahasiswa[] member;
+    private Mahasiswa member[];
     private int numm=0;
     private int num=0;
+    private int max;
+    private int maxa;
     
     public Tubes(int idtubes, String judul,int maksmember,int maksdok){
         this.idtubes=idtubes;
         this.judul=judul;
-        Dokumentasi[] dokumentasi= new Dokumentasi[maksdok];
-        Mahasiswa[] member = new Mahasiswa[maksmember];
+        dokumentasi= new Dokumentasi[maksdok];
+        member = new Mahasiswa[maksmember];
+        max=maksmember;
+        maxa=maksdok;
     }
+    
     
     public void setJudul(String a){
      judul=a;
+    }
+    public int getNumm(){
+        return numm;
+    }
+     public int getNum(){
+        return num;
     }
     public String getJudul(){
         return judul;
@@ -57,14 +68,22 @@ public class Tubes {
     public Mahasiswa getMemberByIndex(int ind){
         return member[ind];
     }
+   
     public void deleteMember(int ind){
            member[ind]=null;
             int c=ind+1;
+            if(member[c]!=null){
             for(int i=c;i<=member.length;i++){
                 member[i]=member[i-1];
             }
+           
+            }
+            else if(member[c+1]==null){
+                member[ind]=member[c];
+            }
+             numm--;
     }
-    public void createDok(String deskripsi,int waktu,String status){
+    public void createDok(String deskripsi,String waktu,String status){
             Dokumentasi d =new Dokumentasi(deskripsi,waktu,status);
             if(num<dokumentasi.length){
             dokumentasi[num]=d;
@@ -79,10 +98,18 @@ public class Tubes {
     }
     public void deleteDok(int ind){
            dokumentasi[ind]=null;
+           
             int c=ind+1;
+            if(dokumentasi[c]!=null){
             for(int i=c;i<=dokumentasi.length;i++){
                 dokumentasi[i]=dokumentasi[i-1];
             }
+            
+            }
+            else if(dokumentasi[c+1]==null){
+                dokumentasi[ind]=dokumentasi[c];
+            }
+            num--;
     }
     
 }

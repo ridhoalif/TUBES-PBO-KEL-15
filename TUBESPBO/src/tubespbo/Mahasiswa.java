@@ -1,35 +1,37 @@
+package tubespbo;
+
 public class Mahasiswa extends Orang{
 	private long nim;
 	private String kelas;
 	
-	public Mahasiswa(String nama, int umur, String jenisKelamin, long nim, String kelas){
-		super(nama, umur, jenisKelamin);
+	public Mahasiswa(String jenisKelamin,int umur,String nama, long nim, String kelas){
+		super(jenisKelamin,umur,nama);
 		this.nim = nim;
 		this.kelas = kelas;
 	}
 	
 	public void setNama(String nama){
-		super(nama);
+		super.setNama(nama);
 	}
 	
 	public String getNama(){
-		return super.nama;
+		return super.getNama();
 	}
 	
 	public void setUmur(int umur){
-		super(umur);
+		super.setUmur(umur);
 	}
 	
 	public int getUmur(){
-		return super.umur;
+		return super.getUmur();
 	}
 	
 	public void setJenisKelamin(String jenisKelamin){
-		super(jenisKelamin);
+		super.setJenisKelamin(jenisKelamin);
 	}
 	
 	public String getJenisKelamin(){
-		return super.jenisKelamin;
+		return super.getJenisKelamin();
 	}
 	
 	public void setKelas(String kelas){
