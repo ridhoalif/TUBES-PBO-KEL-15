@@ -9,16 +9,17 @@ package tubespbo;
  *
  * @author Rashief
  */
-public class Asisten {
+public class Asisten extends Orang {
     private String nama;
 	private long id;
 	public Tubes[] tubes;
 	private int numtubes=0;
+       
 
-	public Asisten(String nama,long id,int index){
-		this.nama = nama;
+	public Asisten(String jenisKelamin,int umur,String nama,long id,int index){
+		super(jenisKelamin,umur,nama);
 		this.id = id;
-		Tubes[] tubes = new Tubes[numtubes];
+		tubes = new Tubes[index];
 	}
 	public void createTubes(Tubes tb){
 		
@@ -41,18 +42,26 @@ public class Asisten {
             }
 		
 	}
-	public void setNama(String nama){
-		this.nama = nama;
-	}
 	public void setId(long id){
 		this.id = id;
 	}
 	
-	public String getNama(){
-		return nama;
-	}
 	public long getId(){
 		return id;
 	}
+        public void Display(){
+            System.out.println(getNama());
+        for (int i=0;i<numtubes;i++){
+        System.out.println(getTubes(i).getJudul());
+           for(int j=0;j<getTubes(i).getNumm();j++){
+               System.out.println(getTubes(i).getMemberByIndex(j).getNama());
+               System.out.println(getTubes(i).getMemberByIndex(j).getUmur());
+           }
+           for(int f=0;f<getTubes(i).getNum();f++){
+              System.out.println(getTubes(i).getDok(f).getDes());
+              System.out.println(getTubes(i).getDok(f).getStatus());
+           }
+        }
+        }
 
 }
