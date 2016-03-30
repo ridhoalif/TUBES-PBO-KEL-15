@@ -5,6 +5,8 @@
  */
 package tubespbo;
 
+import java.util.*;
+
 /**
  *
  * @author Rashief
@@ -12,34 +14,30 @@ package tubespbo;
 public class Asisten extends Orang {
     private String nama;
 	private long id;
-	public Tubes[] tubes;
+	private ArrayList<Tubes> listTubes;
 	private int numtubes=0;
        
 
-	public Asisten(String jenisKelamin,int umur,String nama,long id,int index){
+	public Asisten(String jenisKelamin,int umur,String nama,long id){
 		super(jenisKelamin,umur,nama);
 		this.id = id;
-		tubes = new Tubes[index];
+                listTubes = new ArrayList<>();
 	}
-	public void createTubes(Tubes tb){
-		
-                if (numtubes<tubes.length){
-                    tubes[numtubes]=tb;
-                    numtubes++;
-                }
-                else{
-                    System.out.println("data sudah penuh");
-                }
+
+   
+	public Tubes getTubes(int idt){
+        for (Tubes tu: listTubes){
+            if (tu.getId()==idt)
+		return tu;
 	}
-	public Tubes getTubes(int a){
-		return tubes[a];
-	}
+	return null;
+    }
+        public void addtubes(Tubes t){
+            listTubes.add(t);
+        }
 	public void deleteTubes(int a){
-            tubes[a]=null;
-            int c=a+1;
-            for(int i=c;i<=tubes.length;i++){
-                tubes[i]=tubes[i-1];
-            }
+            listTubes.remove(a);
+            
 		
 	}
 	public void setId(long id){
@@ -49,19 +47,6 @@ public class Asisten extends Orang {
 	public long getId(){
 		return id;
 	}
-        public void Display(){
-            System.out.println(getNama());
-        for (int i=0;i<numtubes;i++){
-        System.out.println(getTubes(i).getJudul());
-           for(int j=0;j<getTubes(i).getNumm();j++){
-               System.out.println(getTubes(i).getMemberByIndex(j).getNama());
-               System.out.println(getTubes(i).getMemberByIndex(j).getUmur());
-           }
-           for(int f=0;f<getTubes(i).getNum();f++){
-              System.out.println(getTubes(i).getDok(f).getDes());
-              System.out.println(getTubes(i).getDok(f).getStatus());
-           }
-        }
-        }
+      
 
 }

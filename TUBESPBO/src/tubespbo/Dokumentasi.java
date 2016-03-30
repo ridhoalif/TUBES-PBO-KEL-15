@@ -17,7 +17,7 @@ public class Dokumentasi {
     public Dokumentasi(String deskripsi,String waktu,String status){
         this.deskripsi=deskripsi;
         this.waktu=waktu;
-        setStatus(status);
+        this.status=status;
        
     }
     public String getDes(){
@@ -31,12 +31,18 @@ public class Dokumentasi {
         return status;
     }
     
-    public void setStatus(String status){
-        if (status=="selesai"||status=="belum"){
-            this.status=status;
+    public void setStatus(String s){
+        if (s=="selesai" || s=="belum"){
+            status=s;
         }
         else{
             System.out.println("input status salah");
         }
+    }
+     @Override
+    public String toString(){
+        return "\nDeskripsi: "+deskripsi
+		+ "\nStatus: "+status
+		+ "\nWaktu: "+waktu;
     }
 }

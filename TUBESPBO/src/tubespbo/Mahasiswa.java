@@ -49,4 +49,11 @@ public class Mahasiswa extends Orang{
 	public long getNim(){
 		return nim;
 	}
+         @Override
+    public String toString(){
+        return "\nNim Mahasiswa: "+nim
+		+ "\nKelas: "+kelas
+		+ "\nJenis Kelamin: "+getJenisKelamin()
+		+"\nUmur: "+getUmur();
+    }
 }
