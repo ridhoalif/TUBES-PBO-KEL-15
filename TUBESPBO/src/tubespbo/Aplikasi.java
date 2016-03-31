@@ -109,6 +109,7 @@ public class Aplikasi {
 }
        public void mainmenu(){
             System.out.println("MENU ASISTEN");
+            
             System.out.println("1.Create Tubes");
             System.out.println("2.View Tubes");
             System.out.println("3.Delete Tubes");
@@ -116,6 +117,10 @@ public class Aplikasi {
             System.out.println("5.Delete Mahasiswa");
             System.out.println("6.Search Mahasiswa");
             System.out.println("7.Search Tubes");
+            System.out.println("8.Create Asisten");
+            System.out.println("9.Assign Tubes");
+            System.out.println("10.View Asisten");
+            System.out.println("11.Menu Utama");
             
             System.out.print("Masukkan Menu :");
             int pil=sc.nextInt();
@@ -190,10 +195,44 @@ public class Aplikasi {
                      }
                      mainmenu();
                 case 8:
-                    menutama();
+                    System.out.print("Masukkan Nama : ");
+                     String na= sc.nextLine();
+                     na= sc.nextLine();
+                     System.out.print("Masukkan JenisKelamin : ");
+                     String jk = sc.nextLine();
+                     System.out.print("Masukkan Umur : ");
+                     int um=sc.nextInt();
+                     System.out.print("Masukkan Nim : ");
+                      ni=sc.nextLong();
+                      listAsisten.add(new Asisten(jk,um,na,ni));
+                      mainmenu();
+                case 9:
+                    System.out.print("Masukkan ID Tubes :");
+                     idt=sc.nextInt();
+                     System.out.print("Masukkan Nim :");
+                     ni=sc.nextInt();
+                     for(Asisten Asis:listAsisten){
+                         if(Asis.getId()==ni){
+                     
+                     for(Tubes tus:listT){
+                         if(tus.getId()==idt){
+                             assignTubes(tus, ni);
+                         }
+                             
+                     }
+                         }
+                     }
+                     mainmenu();
                              
                     
-                    
+                case 10:
+                    for(Asisten asis:listAsisten){
+                        asis.display();
+                    }
+                    mainmenu();
+                case 11:
+                    menutama();
+                            
                     
             }
        }
