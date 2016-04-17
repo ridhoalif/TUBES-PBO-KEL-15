@@ -12,6 +12,11 @@ package tubespbo;
 public class Driver {
     public static void main(String[] args) {
         Aplikasi a= new Aplikasi();
-        a.menutama();
+       Viewconsole c=new Viewconsole();
+       
+        Controler ca;
+        ca=new Controler(a);//tampilan GUI cuk ini
+        c.menutama();// buat nampilin pake tampilan konsol
+       
     }
 }

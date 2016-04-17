@@ -53,15 +53,29 @@ public class Tubes {
     public Mahasiswa getMemberByIndex(int ind){
         return listMa.get(ind);
     }
+    public ArrayList<Mahasiswa> getlistmahasiswa(){
+        return listMa;
+    }
    
     public void deleteMember(long ind){
-        for(Mahasiswa mhs:listMa){
-            if(mhs.getNim()==ind){
+        
+        Mahasiswa mhs=getMemberById(ind);
                 listMa.remove(mhs);
-        }
+        
        
     }
+    
+    public Mahasiswa getidmember(long id){
+        Mahasiswa asa = null;
+        for(Mahasiswa mhs:listMa){
+            if(mhs.getNim()==id)
+                asa=mhs;
     }
+        return asa;
+    }
+   
+    
+    
     public void addDok(String deskripsi,String waktu,String status){
             Dokumentasi d =new Dokumentasi(deskripsi,waktu,status);
           listDo.add(d);
@@ -87,6 +101,14 @@ public class Tubes {
         }
        
 		
+    }
+    public ArrayList<Dokumentasi> getlistdok(){
+        return listDo;
+    }
+    @Override
+    public String toString(){
+        return "\nID Tubes : "+getId()+
+                "\nJudul Tubes : "+getJudul();
     }
     
 }

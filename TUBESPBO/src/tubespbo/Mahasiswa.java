@@ -51,7 +51,8 @@ public class Mahasiswa extends Orang{
 	}
          @Override
     public String toString(){
-        return "\nNim Mahasiswa: "+nim
+        return "\nNama: "+getNama()+
+                "\nNim Mahasiswa: "+nim
 		+ "\nKelas: "+kelas
 		+ "\nJenis Kelamin: "+getJenisKelamin()
 		+"\nUmur: "+getUmur();

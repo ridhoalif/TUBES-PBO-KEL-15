@@ -47,6 +47,38 @@ public class Asisten extends Orang {
 	public long getId(){
 		return id;
 	}
+        public void setviewtubes(){
+            for(Tubes tus:listTubes){
+                tus.toString();
+            }
+        }
+          
+    public void display(){
+        System.out.println("Nama : "+getNama());
+        System.out.println("Umur : "+getUmur());
+        System.out.println("JK  : "+getJenisKelamin());
+        System.out.println("Nim : "+id);
+        System.out.println("Tubes yang Ditangani :");
+        for(Tubes tus:listTubes){
+            tus.display();
+        }
+    }
+    public String hasil(){
+        
+        
+        return"\nNama : "+getNama()+
+                "\nUmur: "+getUmur()+
+                "\nJK  : "+getJenisKelamin()+
+                "\nNim   : "+getId();
+    }
+    public ArrayList hasiltubes(){
+        
+        
+        return listTubes;
+    }
+    
+                        
+    
       
 
 }
